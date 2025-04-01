@@ -19,7 +19,7 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 )
 
 const SearchBar = () => {
-  const [manufacturer, seTManufacturer] = useState('');
+  const [manufacturer, setManufacturer] = useState('');
   const [model, setModel] = useState('')
   const router = useRouter()
 
@@ -58,7 +58,7 @@ const SearchBar = () => {
       <div className="searchbar__item">
         <SearchManufacturer
           manufacturer={manufacturer}
-          setManufacturer={seTManufacturer}
+          setManufacturer={setManufacturer}
         />
         <SearchButton
           otherClasses='sm:hidden'
