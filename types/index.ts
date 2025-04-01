@@ -32,3 +32,11 @@ export interface CarProps {
     "year": number;
     'isOpen': boolean;
 }
+
+export interface FilterProps {
+    manufacturer?: string;
+    year?: number,
+    fuel?: string,
+    limit?: number,
+    model?: string,
+    }
