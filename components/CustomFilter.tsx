@@ -17,7 +17,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
     const newPathName = updateSearchParams(title, e.value);
     const searchParams = new URLSearchParams(window.location.search);
 
-    searchParams.set(type, value)
+    searchParams.set(title, value)
 
     const newPathname = updateSearchParams(title, e.value.toLowerCase())
 
