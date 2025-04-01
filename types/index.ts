@@ -1,4 +1,3 @@
-import { CustomButtonProps } from '@/types';
 import { manufacturers } from './../constants/index';
 import { MouseEventHandler } from "react";
 
