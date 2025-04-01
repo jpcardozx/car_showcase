@@ -3,11 +3,7 @@ import { fuels, yearsOfProduction } from "@/constants";
 import { CarCard, SearchBar, CustomFilter, Hero, ShowMore } from "@/components";
 import { getSearchParam, getNumberParam } from '@/utils/index';
 
-export default async function Home({
-  searchParams
-}: {
-  searchParams: { [key: string]: string | string[] | undefined; }
-}) {
+export default async function Home({ searchParams }: any) {
 
   const manufacturer = searchParams.manufacturer || "";
   const year = parseInt(searchParams.year as string ?? '2022');
