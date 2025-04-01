@@ -14,10 +14,8 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0]);
 
   const handleUpdateParams = (e: { title: string, value: string }) => {
-    const newPathName = updateSearchParams(title, e.value);
-    const searchParams = new URLSearchParams(window.location.search);
 
-    searchParams.set(title, value)
+    const searchParams = new URLSearchParams(window.location.search);
 
     const newPathname = updateSearchParams(title, e.value.toLowerCase())
 
@@ -53,7 +51,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             <ListboxOptions className='custom-filter__options'>
               {options.map((option) => (
                 <ListboxOption
-                  key={option.title}
+                  key={option.value}
                   value={option}
                   className={({ active }) => `relative cursor-default select-none py-2 px-4 ${active ? 'bg-primary-blue text-white' : 'text-gray-900'}`}>
                   {({ selected }) => (
