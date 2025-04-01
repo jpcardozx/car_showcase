@@ -1,12 +1,13 @@
 import { fetchCars } from "@/utils";
-import { HomeProps } from "@/types";
 import { fuels, yearsOfProduction } from "@/constants";
 import { CarCard, SearchBar, CustomFilter, Hero, ShowMore } from "@/components";
 import { use } from "react";
 
-export default async function Home({ searchParams }: HomeProps) {
-
-  const params = await searchParams;
+export default async function Home({
+  searchParams
+}: {
+  searchParams: URLSearchParams;
+}) {
 
   const manufacturer = searchParams.manufacturer || "";
   const year = parseInt(searchParams.year ?? '2022');
