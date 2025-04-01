@@ -72,4 +72,14 @@ export const updateSearchParams = (type: string, value: string) => {
   return newPathName;
 }
 
+export const getSearchParam = (param: string | string[] | undefined, defaultValue: string = ''): string => {
+  if (Array.isArray(param)) return param[0];
+  return param || defaultValue;
+};
+
+export const getNumberParam = (param: string | string[] | undefined, defaultValue: number): number => {
+  const value = getSearchParam(param);
+  return value ? parseInt(value) : defaultValue;
+};
+
 //key === 'img'

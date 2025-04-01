@@ -1,25 +1,26 @@
 import { fetchCars } from "@/utils";
 import { fuels, yearsOfProduction } from "@/constants";
 import { CarCard, SearchBar, CustomFilter, Hero, ShowMore } from "@/components";
-import { use } from "react";
+import { getSearchParam, getNumberParam } from '@/utils/index';
 
 export default async function Home({
   searchParams
 }: {
-  searchParams: URLSearchParams;
+  searchParams: { [key: string]: string | string[] | undefined; }
 }) {
 
   const manufacturer = searchParams.manufacturer || "";
-  const year = parseInt(searchParams.year ?? '2022');
+  const year = parseInt(searchParams.year as string ?? '2022');
   const fuel = searchParams.fuel || "";
-  const limit = parseInt(searchParams.limit ?? '10');
+  const limit = parseInt(searchParams.limit as string ?? '10');
   const model = searchParams.model || "";
 
   const allCars = await fetchCars({
-    manufacturer,
-    year,
-    fuel,
-    model,
+    manufacturer: getSearchParam(searchParams.manufacturer),
+    year: getNumberParam(searchParams.year, 2022),
+    fuel: getSearchParam(searchParams.fuel),
+    model: getSearchParam(searchParams.model),
+    limit: getNumberParam(searchParams.limit, 10),
   });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
